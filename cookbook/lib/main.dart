@@ -35,11 +35,42 @@ class MyApp extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3,
             ),
           ),
-          body: Center(
-            child: Text(
-              "This is the starting point",
-              style: Theme.of(context).textTheme.headline2,
-            ),
+          body: Column(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Center(
+                    child: Text("Logo",
+                        style: Theme.of(context).textTheme.headline4),
+                  ),
+                ],
+              ),
+              Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text('Product 1'),
+                      Text('Product 2'),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text('Product 1'),
+                      Text('Product 2'),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Text('Product 1'),
+                      Text('Product 2'),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

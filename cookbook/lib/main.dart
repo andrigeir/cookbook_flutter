@@ -40,8 +40,12 @@ class MyApp extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Center(
-                    child: Text("Logo",
-                        style: Theme.of(context).textTheme.headline4),
+                    child: Container(
+                      margin: EdgeInsets.all(8),
+                      height: 150,
+                      width: 150,
+                      child: Image.asset('assets/Icecream_logo.png'),
+                    ),
                   ),
                 ],
               ),
@@ -50,22 +54,88 @@ class MyApp extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text('Product 1'),
-                      Text('Product 2'),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/storm.jpg'),
+                              fit: BoxFit.cover),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/iceInABox.jpg'),
+                              fit: BoxFit.cover),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text('Product 1'),
-                      Text('Product 2'),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/iceInACone.jpg'),
+                              fit: BoxFit.cover),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/shake.jpg'),
+                              fit: BoxFit.cover),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text('Product 1'),
-                      Text('Product 2'),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/iceInABox.jpg'),
+                              fit: BoxFit.cover),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(8),
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/iceInABox.jpg'),
+                              fit: BoxFit.cover),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
                     ],
                   ),
                 ],

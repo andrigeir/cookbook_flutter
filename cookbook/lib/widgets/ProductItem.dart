@@ -7,22 +7,23 @@ class ProductItem extends StatelessWidget {
   ProductItem(this.path, this.title);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.bottomCenter,
-      margin: EdgeInsets.all(8),
-      height: 200,
-      width: 150,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(path),
-          fit: BoxFit.cover,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: GridTile(
+        child: GestureDetector(
+          onTap: () {},
+          child: Image.asset(
+            path,
+            fit: BoxFit.cover,
+          ),
         ),
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.button,
+        footer: GridTileBar(
+          backgroundColor: Theme.of(context).primaryColor.withOpacity(0.8),
+          title: Text(
+            title,
+            textAlign: TextAlign.center,
+          ),
+        ),
       ),
     );
   }

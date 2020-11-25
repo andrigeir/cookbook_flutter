@@ -1,21 +1,22 @@
 import 'package:cookbook/screens/productDetailsScreen.dart';
 import 'package:flutter/material.dart';
 
-void selectProduct(BuildContext ctx) {
-  Navigator.of(ctx).push(
-    MaterialPageRoute(
-      builder: (_) {
-        return ProductDetailsScreen();
-      },
-    ),
-  );
-}
-
 class ProductItem extends StatelessWidget {
-  final String path;
+  final String imagePath;
   final String title;
 
-  ProductItem(this.path, this.title);
+  ProductItem(this.imagePath, this.title);
+
+  void selectProduct(BuildContext ctx) {
+    Navigator.of(ctx).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return ProductDetailsScreen(title, imagePath);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -24,7 +25,7 @@ class ProductItem extends StatelessWidget {
         child: GestureDetector(
           onTap: () => selectProduct(context),
           child: Image.asset(
-            path,
+            imagePath,
             fit: BoxFit.cover,
           ),
         ),

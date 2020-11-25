@@ -7,11 +7,6 @@ class MenuBar extends StatefulWidget {
 }
 
 class _MenuBarState extends State<MenuBar> {
-  // List<String> _pages = <String>[
-  //   CartScreen.routeName,
-  //   ProductOverviewScreen.routeName,
-  //   UserProfile.routeName,
-  // ];
   int _currentIndex = 1;
   @override
   Widget build(BuildContext context) {
@@ -31,12 +26,6 @@ class _MenuBarState extends State<MenuBar> {
           title: new Text('Profile'),
         )
       ],
-      // onTap: (index) {
-      //   setState(() {
-      //     _currentIndex = index;
-      //     Navigator.of(context).pushReplacementNamed(_pages[index]);
-      //   });
-      // },
     );
   }
 }

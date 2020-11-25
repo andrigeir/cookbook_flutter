@@ -1,7 +1,9 @@
+import 'package:cookbook/screens/ProductDetailScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'screens/ProductOverviewScreen.dart';
+import 'screens/ProductDetailScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,6 +32,6 @@ class MyApp extends StatelessWidget {
                 color: Color(0xFFd52b1e)),
           ),
         ),
-        home: ProductOverviewScreen());
+        home: ProductDetailScreen());
   }
 }

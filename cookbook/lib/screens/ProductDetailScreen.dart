@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/bars/topbar.dart';
 import '../widgets/product_image_widget.dart';
+import '../widgets/bars/back_appbar.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   @override
@@ -13,10 +14,10 @@ class ProductDetailScreen extends StatelessWidget {
         SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              // BackAppBar(loadedProduct.title),
-              // Padding(
-              //   padding: EdgeInsets.all(5),
-              // ),
+              BackAppBar('Storm'),
+              Padding(
+                padding: EdgeInsets.all(5),
+              ),
               ProductImage('assets/storm.jpg'),
               Padding(
                 padding: const EdgeInsets.all(8.0),

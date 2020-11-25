@@ -1,4 +1,15 @@
+import 'package:cookbook/screens/productDetailsScreen.dart';
 import 'package:flutter/material.dart';
+
+void selectProduct(BuildContext ctx) {
+  Navigator.of(ctx).push(
+    MaterialPageRoute(
+      builder: (_) {
+        return ProductDetailsScreen();
+      },
+    ),
+  );
+}
 
 class ProductItem extends StatelessWidget {
   final String path;
@@ -11,7 +22,7 @@ class ProductItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: GridTile(
         child: GestureDetector(
-          onTap: () {},
+          onTap: () => selectProduct(context),
           child: Image.asset(
             path,
             fit: BoxFit.cover,

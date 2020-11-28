@@ -1,14 +1,13 @@
+import 'package:cookbook/models/product.dart';
 import 'package:flutter/material.dart';
 import '../widgets/bars/topbar.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  final String productTitle;
-  final String productImage;
-
-  ProductDetailsScreen(this.productTitle, this.productImage);
+  static const routeName = "/product-detail";
 
   @override
   Widget build(BuildContext context) {
+    final Product loadedProduct = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: TopBar(),
@@ -16,7 +15,7 @@ class ProductDetailsScreen extends StatelessWidget {
         children: [
           AppBar(
             title: Text(
-              productTitle,
+              loadedProduct.title,
               style: Theme.of(context).textTheme.headline4,
             ),
             centerTitle: true,
@@ -38,7 +37,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.3,
                   width: MediaQuery.of(context).size.width * 0.95,
                   child: new Image.asset(
-                    productImage,
+                    loadedProduct.imageUrl,
                     fit: BoxFit.fitWidth,
                   ),
                 ),

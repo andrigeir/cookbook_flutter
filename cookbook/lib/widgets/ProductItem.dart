@@ -1,21 +1,11 @@
+import 'package:cookbook/models/product.dart';
 import 'package:cookbook/screens/productDetailsScreen.dart';
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
-  final String imagePath;
-  final String title;
+  final Product loadedProduct;
 
-  ProductItem(this.imagePath, this.title);
-
-  void selectProduct(BuildContext ctx) {
-    Navigator.of(ctx).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return ProductDetailsScreen(title, imagePath);
-        },
-      ),
-    );
-  }
+  ProductItem(this.loadedProduct);
 
   @override
   Widget build(BuildContext context) {
@@ -23,16 +13,18 @@ class ProductItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: GridTile(
         child: GestureDetector(
-          onTap: () => selectProduct(context),
+          onTap: () => Navigator.of(context).pushNamed(
+              ProductDetailsScreen.routeName,
+              arguments: loadedProduct),
           child: Image.asset(
-            imagePath,
+            loadedProduct.imageUrl,
             fit: BoxFit.cover,
           ),
         ),
         footer: GridTileBar(
           backgroundColor: Theme.of(context).primaryColor.withOpacity(0.8),
           title: Text(
-            title,
+            loadedProduct.title,
             textAlign: TextAlign.center,
           ),
         ),

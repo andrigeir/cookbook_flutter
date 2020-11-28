@@ -1,9 +1,10 @@
-import 'package:cookbook/widgets/grids/ToggleButtonGrid.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/bars/topbar.dart';
 import '../widgets/product_image_widget.dart';
 import '../widgets/bars/back_appbar.dart';
+import '../widgets/grids/ToggleButtonGrid.dart';
+import '../widgets/cart_bottom_boarder.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   @override
@@ -72,6 +73,7 @@ class ProductDetailScreen extends StatelessWidget {
             ],
           ),
         ),
+        CartBottomBorder(loadedProduct: null)
       ]),
     );
   }

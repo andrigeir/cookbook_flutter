@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../screens/cart_screen.dart';
 import '../../screens/ProductOverviewScreen.dart';
+import '../../screens/user_profile_screen.dart';
 
 class MenuBar extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class _MenuBarState extends State<MenuBar> {
   List<String> _pages = <String>[
     CartScreen.routeName,
     ProductOverviewScreen.routeName,
-    //UserProfile.routeName,
+    UserProfile.routeName,
   ];
   int _currentIndex = 1;
   @override

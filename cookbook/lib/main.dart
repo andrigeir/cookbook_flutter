@@ -1,11 +1,15 @@
 import 'package:cookbook/screens/cart_screen.dart';
+import 'package:cookbook/screens/orders_screen.dart';
 import 'package:cookbook/screens/productDetailsScreen.dart';
+import 'package:cookbook/screens/user_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/ProductOverviewScreen.dart';
+import 'screens/user_profile_screen.dart';
 import 'models/cart.dart';
+import 'models/orders.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,6 +22,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider.value(value: CartItem()),
           ChangeNotifierProvider.value(value: Cart()),
+          ChangeNotifierProvider.value(value: Orders())
         ],
         child: MaterialApp(
             theme: ThemeData(
@@ -48,7 +53,9 @@ class MyApp extends StatelessWidget {
                   ProductDetailsScreen(),
               CartScreen.routeName: (context) => CartScreen(),
               ProductOverviewScreen.routeName: (context) =>
-                  ProductOverviewScreen()
+                  ProductOverviewScreen(),
+              UserProfile.routeName: (context) => UserProfile(),
+              OrderScreen.routeName: (context) => OrderScreen()
             }));
   }
 }

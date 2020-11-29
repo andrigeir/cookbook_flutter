@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/cart.dart';
+import '../../models/orders.dart';
 
 class CartToOrderButton extends StatefulWidget {
   @override
@@ -46,7 +47,16 @@ class _CartToOrderBottonState extends State<CartToOrderButton> {
               borderRadius: BorderRadius.all(Radius.circular(20))),
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        Provider.of<Orders>(
+          context,
+          listen: false,
+        ).addOrder(
+          cart.items.values.toList(),
+          cart.totalAmount,
+        );
+        cart.clearCart();
+      },
     );
   }
 }

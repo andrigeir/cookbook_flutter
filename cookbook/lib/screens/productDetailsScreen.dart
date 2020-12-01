@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import '../widgets/bars/topbar.dart';
 import '../widgets/grids/ToggleButtonGrid.dart';
 import '../models/cart.dart';
-import 'package:badges/badges.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   static const routeName = "/product-detail";

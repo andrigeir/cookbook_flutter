@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'cart.dart';
+import 'package:http/http.dart' as http;
 
 class OrderItem {
   final String orderId;
@@ -22,7 +25,34 @@ class Orders with ChangeNotifier {
     return [..._orders];
   }
 
-  void addOrder(List<CartItem> cartProducts, int totalAmount) {
+  Future<void> addOrder(List<CartItem> cartProducts, int totalAmount) async {
+    String url =
+        "https://cookbook-firebase-with-flutter.firebaseio.com/orders.json";
+    final timestamp = DateTime.now();
+    http.post(
+      url,
+      body: json.encode({
+        'amount': totalAmount,
+        'dateTime': timestamp.toIso8601String(),
+        'products': cartProducts
+            .map((cp) => {
+                  'id': cp.id,
+                  'title': cp.title,
+                  'type': cp.type
+                      .toString()
+                      .substring(cp.type.toString().indexOf(".") + 1)
+                      .toUpperCase(),
+                  'size': cp.size
+                      .toString()
+                      .substring(cp.size.toString().indexOf(".") + 1),
+                  'quantity': cp.quantity,
+                  'price': cp.price,
+                  'candy': cp.candy
+                })
+            .toList(),
+      }),
+    );
+
     _orders.insert(
       0,
       OrderItem(

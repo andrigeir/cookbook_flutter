@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 
 import '../items/toggle_button_item.dart';
 import '../../models/cart.dart';
-import '../../models/product.dart';
 
 class MyToggleButton extends StatefulWidget {
   final bool horizontalScroll;

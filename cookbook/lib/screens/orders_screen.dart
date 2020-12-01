@@ -54,7 +54,7 @@ class _OrderScreenState extends State<OrderScreen> {
                       return OrderListItem(orders[i]);
                     },
                   ),
-                )
+                ),
               ]),
       ),
     );

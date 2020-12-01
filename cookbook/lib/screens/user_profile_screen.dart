@@ -22,7 +22,7 @@ class UserProfile extends StatelessWidget {
                     height: 120.0,
                     width: MediaQuery.of(context).size.width,
                     child: new Image.asset(
-                      'assets/images/logo-white.png',
+                      'assets/Icecream_logo.png',
                       height: 60.0,
                     ),
                   ),

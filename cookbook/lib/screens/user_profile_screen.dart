@@ -1,3 +1,5 @@
+import 'package:cookbook/screens/auth_screen.dart';
+
 import '../widgets/bars/topbar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/bars/menubar.dart';
@@ -19,7 +21,7 @@ class UserProfile extends StatelessWidget {
                 children: [
                   Container(
                     padding: EdgeInsets.only(top: 15, bottom: 25),
-                    height: 120.0,
+                    height: 150.0,
                     width: MediaQuery.of(context).size.width,
                     child: new Image.asset(
                       'assets/Icecream_logo.png',
@@ -29,25 +31,41 @@ class UserProfile extends StatelessWidget {
                 ],
               ),
               UserProfileButton(
-                text: 'Stillingar',
+                text: 'Settings',
                 routeName: '',
                 icon: Icons.person,
+                logoutMethod: false,
               ),
               UserProfileButton(
-                  text: 'Kredit kort', routeName: '', icon: Icons.credit_card),
+                text: 'Credit Cards',
+                routeName: '',
+                icon: Icons.credit_card,
+                logoutMethod: false,
+              ),
               UserProfileButton(
-                  text: 'Pantanir',
-                  routeName: OrderScreen.routeName,
-                  icon: Icons.restore),
+                text: 'Orders',
+                routeName: OrderScreen.routeName,
+                icon: Icons.restore,
+                logoutMethod: false,
+              ),
               UserProfileButton(
-                text: 'Um Vesturbæjarís',
+                text: 'About us',
                 routeName: '',
                 icon: Icons.store,
+                logoutMethod: false,
               ),
               UserProfileButton(
-                  text: 'FAQ', routeName: '', icon: Icons.question_answer),
+                text: 'FAQ',
+                routeName: '',
+                icon: Icons.question_answer,
+                logoutMethod: false,
+              ),
               UserProfileButton(
-                  text: 'Skrá út', routeName: '', icon: Icons.lock),
+                text: 'Log out',
+                routeName: AuthScreen.routeName,
+                icon: Icons.lock,
+                logoutMethod: true,
+              ),
             ],
           )),
       bottomNavigationBar: MenuBar(),

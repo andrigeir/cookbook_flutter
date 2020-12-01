@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../models/auth.dart';
 
 class UserProfileButton extends StatelessWidget {
-  const UserProfileButton({
-    Key key,
-    @required this.routeName,
-    @required this.text,
-    @required this.icon,
-  }) : super(key: key);
+  const UserProfileButton(
+      {Key key,
+      @required this.routeName,
+      @required this.text,
+      @required this.icon,
+      @required this.logoutMethod})
+      : super(key: key);
 
   final String routeName;
   final String text;
   final IconData icon;
+  final bool logoutMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +53,14 @@ class UserProfileButton extends StatelessWidget {
           ),
         ),
         onTap: () {
-          Navigator.of(context).pushNamed(routeName);
+          if (logoutMethod) {
+            print(Provider.of<Auth>(context, listen: false).isAuth.toString());
+
+            Provider.of<Auth>(context, listen: false).logout();
+            print(Provider.of<Auth>(context, listen: false).isAuth.toString());
+          } else {
+            Navigator.of(context).pushNamed(routeName);
+          }
         });
   }
 }

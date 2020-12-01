@@ -70,48 +70,48 @@ class ProductDetailsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Text(
-                      'Please choose the size of your ice-cream',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ),
-                ),
-                MyToggleButton(
-                  horizontalScroll: true,
-                  titles: CartItem().mapSize.keys.toList(),
-                  method: 1,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Text(
-                      'Please choose the base of your ice-cream',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ),
-                ),
-                MyToggleButton(
-                  horizontalScroll: false,
-                  titles: CartItem().mapType.keys.toList(),
-                  method: 2,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Text(
-                      'Please choose your extras',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ),
-                ),
-                MyToggleButton(
-                  horizontalScroll: false,
-                  titles: CartItem().mapSize.keys.toList(),
-                  method: 3,
-                )
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Please choose the size of your ice-cream',
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                        ),
+                      ),
+                      MyToggleButton(
+                        horizontalScroll: true,
+                        titles: CartItem().mapSize.keys.toList(),
+                        method: 1,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Please choose the base of your ice-cream',
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                        ),
+                      ),
+                      MyToggleButton(
+                        horizontalScroll: false,
+                        titles: CartItem().mapType.keys.toList(),
+                        method: 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: Text(
+                            'Please choose your extras',
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                        ),
+                      ),
+                      MyToggleButton(
+                        horizontalScroll: false,
+                        titles: CartItem().mapSize.keys.toList(),
+                        method: 3,
+                      )
               ],
             ),
           ),

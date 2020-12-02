@@ -1,8 +1,10 @@
 import 'package:cookbook/screens/auth_screen.dart';
 import 'package:cookbook/screens/cart_screen.dart';
+
 import 'package:cookbook/screens/orders_screen.dart';
 import 'package:cookbook/screens/productDetailsScreen.dart';
 import 'package:cookbook/screens/user_profile_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -31,11 +33,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProxyProvider<Auth, Orders>(
           create: null,
           update: (context, auth, previousOrders) => Orders(auth.token,
-              auth.userId, previousOrders == null ? [] : previousOrders),
+              auth.userId, previousOrders == null ? [] : previousOrders.orders),
         ),
       ],
       child: Consumer<Auth>(
-        builder: (context, auth, child) => MaterialApp(
+        builder: (_, auth, child) => MaterialApp(
           theme: ThemeData(
             primaryColor: Color(0xFFd52b1e),
             accentColor: Colors.white,
@@ -62,7 +64,8 @@ class MyApp extends StatelessWidget {
             ProductOverviewScreen.routeName: (context) =>
                 ProductOverviewScreen(),
             UserProfile.routeName: (context) => UserProfile(),
-            OrderScreen.routeName: (context) => OrderScreen()
+            OrderScreen.routeName: (context) => OrderScreen(),
+            AuthScreen.routeName: (context) => AuthScreen(),
           },
         ),
       ),

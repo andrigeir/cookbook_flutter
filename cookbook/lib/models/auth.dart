@@ -10,7 +10,7 @@ class Auth with ChangeNotifier {
   String _userId;
 
   bool get isAuth {
-    return _token != null;
+    return token != null;
   }
 
   String get userId {
@@ -72,6 +72,7 @@ class Auth with ChangeNotifier {
     _token = null;
     _userId = null;
     _expiryDate = null;
+
     notifyListeners();
   }
 }

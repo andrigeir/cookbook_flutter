@@ -62,7 +62,7 @@ class UserProfile extends StatelessWidget {
               ),
               UserProfileButton(
                 text: 'Log out',
-                routeName: AuthScreen.routeName,
+                routeName: '/',
                 icon: Icons.lock,
                 logoutMethod: true,
               ),

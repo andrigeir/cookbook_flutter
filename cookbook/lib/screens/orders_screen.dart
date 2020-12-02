@@ -33,6 +33,7 @@ class _OrderScreenState extends State<OrderScreen> {
   Widget build(BuildContext context) {
     final orders = Provider.of<Orders>(context).orders;
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: TopBar(),
       body: Container(
         color: Theme.of(context).primaryColor,

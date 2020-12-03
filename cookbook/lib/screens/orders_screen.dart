@@ -41,22 +41,15 @@ class _OrderScreenState extends State<OrderScreen> {
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : Column(children: [
-                AppBar(
-                  title: Text("Orders from Database"),
-                  centerTitle: true,
-                  elevation: 0,
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: orders.length,
-                    itemBuilder: (BuildContext context, i) {
-                      return OrderListItem(orders[i]);
-                    },
-                  ),
-                ),
-              ]),
+            : ListView.builder(
+                shrinkWrap: true,
+                itemCount: orders.length,
+                itemBuilder: (
+                  BuildContext context,
+                  i,
+                ) =>
+                    OrderListItem(orders[i]),
+              ),
       ),
     );
   }

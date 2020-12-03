@@ -29,66 +29,43 @@ class Orders with ChangeNotifier {
     return [..._orders];
   }
 
-        "https://cookbook-firebase-with-flutter.firebaseio.com/orders/$userId.json?auth=$authToken";
-      BuildContext context) async {
-  Future<int> addOrder(List<CartItem> cartProducts, int totalAmount,
+  Future<void> addOrder(List<CartItem> cartProducts, int totalAmount) async {
     final url =
+        "https://cookbook-firebase-with-flutter.firebaseio.com/orders/$userId.json?auth=$authToken";
     final timestamp = DateTime.now();
-    try {
-      final response = await http.post(
-        url,
-        body: json.encode(
-          {
-            'amount': totalAmount,
-            'dateTime': timestamp.toIso8601String(),
-            'products': cartProducts
-                .map((cp) => {
-                      'id': cp.id,
-                      'title': cp.title,
-                      'type': cp.type
-                          .toString()
-                          .substring(cp.type.toString().indexOf(".") + 1),
-                      'size': cp.size
-                          .toString()
-                          .substring(cp.size.toString().indexOf(".") + 1),
-                      'quantity': cp.quantity,
-                      'price': cp.price,
-                      'candy': cp.candy
-                    })
-                .toList(),
-          },
-        ),
-      );
-      _orders.insert(
-        0,
-        OrderItem(
-          orderId: json.decode(response.body)['name'],
-          amount: totalAmount,
-          products: cartProducts,
-          dateTime: timestamp,
-        ),
-      );
-      notifyListeners();
-      return 1;
-    } catch (error) {
-      showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: Text("An ERROR occurred!"),
-          content:
-              Text("Something went wrong and we could not process your order"),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(ctx).pop();
-              },
-            ),
-          ],
-        ),
-      );
-      return 0;
-    }
+    final response = await http.post(
+      url,
+      body: json.encode({
+        'amount': totalAmount,
+        'dateTime': timestamp.toIso8601String(),
+        'products': cartProducts
+            .map((cp) => {
+                  'id': cp.id,
+                  'title': cp.title,
+                  'type': cp.type
+                      .toString()
+                      .substring(cp.type.toString().indexOf(".") + 1),
+                  'size': cp.size
+                      .toString()
+                      .substring(cp.size.toString().indexOf(".") + 1),
+                  'quantity': cp.quantity,
+                  'price': cp.price,
+                  'candy': cp.candy
+                })
+            .toList(),
+      }),
+    );
+
+    _orders.insert(
+      0,
+      OrderItem(
+        orderId: json.decode(response.body)['name'],
+        amount: totalAmount,
+        products: cartProducts,
+        dateTime: DateTime.now(),
+      ),
+    );
+    notifyListeners();
   }
 
   Future<void> fetchAndSetOrders() async {
@@ -125,7 +102,7 @@ class Orders with ChangeNotifier {
         ),
       );
     });
-    _orders = loadedOrders.reversed.toList();
+    _orders = loadedOrders;
     notifyListeners();
   }
 }

@@ -67,20 +67,17 @@ class _CartToOrderBottonState extends State<CartToOrderButton> {
                         setState(() {
                           _isloading = true;
                         });
-                        final response = await Provider.of<Orders>(
+                        await Provider.of<Orders>(
                           context,
                           listen: false,
                         ).addOrder(
                           cart.items.values.toList(),
                           cart.totalAmount,
-                          context,
                         );
                         setState(() {
                           _isloading = false;
                         });
-                        if (response == 1) {
-                          cart.clearCart();
-                        }
+                        cart.clearCart();
                       },
               );
   }

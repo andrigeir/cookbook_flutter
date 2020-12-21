@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
-
 import 'package:provider/provider.dart';
-
 import '../items/toggle_button_item.dart';
 import '../../models/cart.dart';
-
-
-import '../items/toggle_button_item.dart';
-
 
 class MyToggleButton extends StatefulWidget {
   final bool horizontalScroll;
@@ -20,7 +14,6 @@ class MyToggleButton extends StatefulWidget {
       @required this.horizontalScroll,
       @required this.titles,
       @required this.method})
-
       : super(key: key);
   @override
   _MyToggleButtonState createState() => _MyToggleButtonState();
@@ -39,7 +32,6 @@ class _MyToggleButtonState extends State<MyToggleButton> {
     _color = List.generate(i, (_) => Colors.white.withOpacity(0.5));
   }
 
-
   void _setSize(BuildContext context, String _title) {
     Provider.of<CartItem>(context, listen: false).setSize(_title);
   }
@@ -55,7 +47,6 @@ class _MyToggleButtonState extends State<MyToggleButton> {
   void _removeCandy(BuildContext context, String _candy) {
     Provider.of<CartItem>(context, listen: false).removeCandy(_candy);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +103,6 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                             _removeCandy(context, widget.titles[index]);
                           }
                         }
-
                       });
                     },
                     borderColor: Theme.of(context).primaryColor,

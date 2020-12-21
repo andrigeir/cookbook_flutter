@@ -16,6 +16,7 @@ class _MenuBarState extends State<MenuBar> {
     ProductOverviewScreen.routeName,
     UserProfile.routeName,
   ];
+
   int _currentIndex = 1;
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class _MenuBarState extends State<MenuBar> {
           Navigator.of(context).pushReplacementNamed(_pages[index]);
         });
       },
+
     );
   }
 }

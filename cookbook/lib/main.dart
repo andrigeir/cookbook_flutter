@@ -1,5 +1,6 @@
 import 'package:cookbook/screens/auth_screen.dart';
 import 'package:cookbook/screens/cart_screen.dart';
+import 'package:cookbook/screens/confirm_order_screen.dart';
 import 'package:cookbook/screens/orders_screen.dart';
 import 'package:cookbook/screens/productDetailsScreen.dart';
 import 'package:cookbook/screens/user_profile_screen.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
                   color: Color(0xFFd52b1e)),
             ),
           ),
+          //home: ConfirmOrderScreen(),
           home: auth.isAuth ? ProductOverviewScreen() : AuthScreen(),
           routes: {
             ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
@@ -63,6 +65,7 @@ class MyApp extends StatelessWidget {
             UserProfile.routeName: (context) => UserProfile(),
             OrderScreen.routeName: (context) => OrderScreen(),
             AuthScreen.routeName: (context) => AuthScreen(),
+            ConfirmOrderScreen.routeName: (context) => ConfirmOrderScreen(),
           },
         ),
       ),

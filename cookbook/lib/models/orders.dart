@@ -108,14 +108,14 @@ class Orders with ChangeNotifier {
 }
 
 Map<String, IceSize> mapSize = {
-  "Kids": IceSize.kids,
-  "Small": IceSize.small,
-  "Medium": IceSize.medium,
-  "Large": IceSize.large,
+  "Barna": IceSize.kids,
+  "Lítill": IceSize.small,
+  "Miðlungs": IceSize.medium,
+  "Stór": IceSize.large,
 };
 
 Map<String, IceType> mapType = {
-  "Milk": IceType.milkbased,
-  "Cream": IceType.creambased,
+  "Gamli": IceType.milkbased,
+  "Nýji": IceType.creambased,
   "Vegan": IceType.vegan
 };

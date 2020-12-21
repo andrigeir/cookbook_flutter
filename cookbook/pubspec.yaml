@@ -57,6 +57,7 @@ flutter:
    - assets/iceInACone.jpg
    - assets/shake.jpg
    - assets/storm.jpg
+   - assets/logo-white.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

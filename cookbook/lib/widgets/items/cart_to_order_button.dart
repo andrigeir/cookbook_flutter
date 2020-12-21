@@ -22,7 +22,7 @@ class _CartToOrderBottonState extends State<CartToOrderButton> {
         : cart.totalAmount <= 0
             ? Center(
                 child: Text(
-                  "You Cart is Empty",
+                  "Karfan er tóm",
                   style: Theme.of(context).textTheme.headline4,
                 ),
               )
@@ -37,15 +37,15 @@ class _CartToOrderBottonState extends State<CartToOrderButton> {
                         child: Center(
                           child: cart.totalAmount != null
                               ? Text(
-                                  'Total: ${cart.totalAmount} kr.',
+                                  'Heildarupphæð: ${cart.totalAmount} kr.',
                                   style: Theme.of(context).textTheme.button,
                                 )
-                              : Text('Total : 0 kr.',
+                              : Text('Heildarupphæð : 0 kr.',
                                   style: Theme.of(context).textTheme.button),
                         ),
                       ),
                       Center(
-                          child: Text('Order',
+                          child: Text('Panta',
                               style: Theme.of(context).textTheme.button)),
                       IconButton(
                           icon: Icon(

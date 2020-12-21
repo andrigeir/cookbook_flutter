@@ -21,6 +21,7 @@ class _CartListItemState extends State<CartListItem> {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
+    final cartItem = Provider.of<CartItem>(context, listen: false);
     final cartItems = cart.items;
     return Dismissible(
       key: Key(cart.items.keys.toList()[widget.index]),
@@ -67,26 +68,30 @@ class _CartListItemState extends State<CartListItem> {
                     ]),
                     Row(
                       children: [
-                        Text(toBeginningOfSentenceCase(
-                          cartItems.values
-                              .toList()[widget.index]
-                              .type
-                              .toString()
-                              .substring(8),
-                        )),
+                        Text(
+                          cartItem.mapType.keys.firstWhere(
+                              (k) =>
+                                  cartItem.mapType[k] ==
+                                  cartItems.values.toList()[widget.index].type,
+                              orElse: null),
+                        ),
+                        // toBeginningOfSentenceCase(
+                        // cartItems.values
+                        //     .toList()[widget.index]
+                        //     .type
+                        //     .toString()
+                        //     .substring(8),
                       ],
                     ),
                     Row(
                       children: [
                         Text(
-                          toBeginningOfSentenceCase(
-                            cartItems.values
-                                .toList()[widget.index]
-                                .size
-                                .toString()
-                                .substring(8),
-                          ),
-                        )
+                          cartItem.mapSize.keys.firstWhere(
+                              (k) =>
+                                  cartItem.mapSize[k] ==
+                                  cartItems.values.toList()[widget.index].size,
+                              orElse: null),
+                        ),
                       ],
                     ),
                     Row(

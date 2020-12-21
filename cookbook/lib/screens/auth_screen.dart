@@ -20,13 +20,11 @@ class AuthScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Center(
-              child: Container(
-                margin: EdgeInsets.all(8),
-                height: 150,
-                width: 150,
-                child: Image.asset('assets/Icecream_logo.png'),
-              ),
+            Container(
+              margin: EdgeInsets.all(8),
+              height: 150,
+              width: 200,
+              child: Image.asset('assets/logo-white.png'),
             ),
             Flexible(
               flex: deviceSize.width > 600 ? 2 : 1,
@@ -62,14 +60,14 @@ class _AuthCardState extends State<AuthCard> {
     showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-              title: Text('An error occured'),
+              title: Text('Villa kom upp'),
               content: Text(message),
               actions: [
                 FlatButton(
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: Text('OK'))
+                    child: Text('Í lagi'))
               ],
             ));
   }
@@ -94,22 +92,22 @@ class _AuthCardState extends State<AuthCard> {
             .signup(_authData['email'], _authData['password']);
       }
     } on HttpException catch (error) {
-      var errorMessage = 'Authentication failed';
+      var errorMessage = 'Auðkenning mistókst';
       if (error.toString().contains('EMAIL_EXIST')) {
-        errorMessage = 'This email adress exists';
+        errorMessage = 'Þetta póstfang er nú þegar í notkun';
       } else if (error.toString().contains('INVALID_EMAIL')) {
-        errorMessage = 'This is not a valid email adress';
+        errorMessage = 'Þetta póstfang er ekki leyfilegt';
       } else if (error.toString().contains('WEAK_PASSWORD')) {
-        errorMessage = 'This password is too weak';
+        errorMessage = 'Lykilorð er ekki nógu sterkt';
       } else if (error.toString().contains('EMAIL_NOT_FOUND')) {
-        errorMessage = 'Could not find tihs user';
+        errorMessage = 'Notandi fannst ekki';
       } else if (error.toString().contains('INVALID_PASSWORD')) {
-        errorMessage = 'Invailid password';
+        errorMessage = 'Rangt lykilorð';
       }
       _showErrorDialog(errorMessage);
     } catch (error) {
       const errorMessage =
-          'Could not authenticate you. Please try again later.';
+          'Auðkenning mistóks, vinsamlegast reynið aftur seinna.';
       _showErrorDialog(errorMessage);
     }
     setState(() {
@@ -149,11 +147,11 @@ class _AuthCardState extends State<AuthCard> {
             child: Column(
               children: <Widget>[
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'E-Mail'),
+                  decoration: InputDecoration(labelText: 'Póstfang'),
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value.isEmpty || !value.contains('@')) {
-                      return 'Invalid email!';
+                      return 'Netfang ekki leyfilegt!';
                     }
                     return null;
                   },
@@ -162,12 +160,12 @@ class _AuthCardState extends State<AuthCard> {
                   },
                 ),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Password'),
+                  decoration: InputDecoration(labelText: 'Lykilorð'),
                   obscureText: true,
                   controller: _passwordController,
                   validator: (value) {
                     if (value.isEmpty || value.length < 5) {
-                      return 'Password is too short!';
+                      return 'Lykilorð er of stutt!';
                     }
                     
                   },
@@ -178,12 +176,13 @@ class _AuthCardState extends State<AuthCard> {
                 if (_authMode == AuthMode.Signup)
                   TextFormField(
                     enabled: _authMode == AuthMode.Signup,
-                    decoration: InputDecoration(labelText: 'Confirm Password'),
+                    decoration:
+                        InputDecoration(labelText: 'Endurtakið lykilorð'),
                     obscureText: true,
                     validator: _authMode == AuthMode.Signup
                         ? (value) {
                             if (value != _passwordController.text) {
-                              return 'Passwords do not match!';
+                              return 'Lykilorðin eru ekki eins!';
                             }
                           }
                         : null,
@@ -197,8 +196,8 @@ class _AuthCardState extends State<AuthCard> {
                   )
                 else
                   RaisedButton(
-                    child:
-                        Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
+                    child: Text(
+                        _authMode == AuthMode.Login ? 'Innskrá' : 'Nýskráning'),
                     onPressed: _submit,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
@@ -210,7 +209,7 @@ class _AuthCardState extends State<AuthCard> {
                   ),
                 FlatButton(
                   child: Text(
-                      '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+                      '${_authMode == AuthMode.Login ? 'Nýskráning' : 'Innskrá'} '),
                   onPressed: _switchAuthMode,
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,

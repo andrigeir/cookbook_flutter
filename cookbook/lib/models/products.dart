@@ -5,7 +5,7 @@ class Products with ChangeNotifier {
   List<Product> _items = [
     Product(
       id: 'p1',
-      title: 'Storm',
+      title: 'Bragðarefur',
       price: 1000,
       imageUrl: 'assets/storm.jpg',
       size: IceSize.kids,
@@ -14,7 +14,7 @@ class Products with ChangeNotifier {
     ),
     Product(
       id: 'p2',
-      title: 'Ice in a Cone',
+      title: 'Ís í brauði',
       price: 1000,
       imageUrl: 'assets/iceInACone.jpg',
       size: IceSize.kids,
@@ -23,7 +23,7 @@ class Products with ChangeNotifier {
     ),
     Product(
       id: 'p3',
-      title: 'Ice in a box',
+      title: 'Ís í boxi',
       price: 1000,
       imageUrl: 'assets/iceInABox.jpg',
       size: IceSize.kids,
@@ -32,7 +32,7 @@ class Products with ChangeNotifier {
     ),
     Product(
       id: 'p4',
-      title: 'shake',
+      title: 'Shake',
       price: 1000,
       imageUrl: 'assets/shake.jpg',
       size: IceSize.kids,
@@ -41,16 +41,7 @@ class Products with ChangeNotifier {
     ),
     Product(
       id: 'p5',
-      title: 'shake',
-      price: 1000,
-      imageUrl: 'assets/shake.jpg',
-      size: IceSize.kids,
-      type: IceType.milkbased,
-      candy: [],
-    ),
-    Product(
-      id: 'p6',
-      title: 'shake',
+      title: 'Lítrar',
       price: 1000,
       imageUrl: 'assets/shake.jpg',
       size: IceSize.kids,

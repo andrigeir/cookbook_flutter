@@ -65,22 +65,22 @@ class CartItem with ChangeNotifier {
   }
 
   Map<String, IceType> mapType = {
-    "Milk": IceType.milkbased,
-    "Cream": IceType.creambased,
+    "Gamli": IceType.milkbased,
+    "Nýji": IceType.creambased,
     "Vegan": IceType.vegan
   };
 
   Map<String, IceSize> mapSize = {
-    "Kids": IceSize.kids,
-    "Small": IceSize.small,
-    "Medium": IceSize.medium,
-    "Large": IceSize.large,
+    "Barna": IceSize.kids,
+    "Lítill": IceSize.small,
+    "Miðlungs": IceSize.medium,
+    "Stór": IceSize.large,
   };
   Map<String, int> mapPrice = {
-    "Kids": 1000,
-    "Small": 1200,
-    "Medium": 1300,
-    "Large": 1500,
+    "Barna": 1000,
+    "Lítill": 1200,
+    "Miðlungs": 1300,
+    "Stór": 1500,
   };
 }
 
@@ -88,11 +88,11 @@ class Cart with ChangeNotifier {
   Map<String, CartItem> _items = {
     'p12': CartItem(
       id: 'p1',
-      title: 'Storm',
+      title: 'Bragðarefur',
       size: IceSize.kids,
       type: IceType.milkbased,
       price: 1000,
-      candy: ['Oreo', 'Caramel'],
+      candy: ['Oreo', 'Jarðaber'],
       quantity: 2,
     )
   };

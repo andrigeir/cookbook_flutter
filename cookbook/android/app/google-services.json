@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "646769423237",
+    "firebase_url": "https://cookbook-firebase-with-flutter.firebaseio.com",
+    "project_id": "cookbook-firebase-with-flutter",
+    "storage_bucket": "cookbook-firebase-with-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646769423237:android:95b0e16013cab494828aec",
+        "android_client_info": {
+          "package_name": "com.brydesalle.fluttercookbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646769423237-f1hpp23he51nq08pvillg94dvlcnfngq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDefBgf2mY3PZVQ4FkfyimnMiSpLQZtpZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646769423237-f1hpp23he51nq08pvillg94dvlcnfngq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

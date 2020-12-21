@@ -7,7 +7,7 @@ class Product {
   final String imageUrl;
   IceSize size;
   IceType type;
-  List<String> nammi;
+  List<String> candy;
 
   Product(
       {@required this.id,
@@ -16,7 +16,7 @@ class Product {
       @required this.imageUrl,
       this.size,
       this.type,
-      this.nammi});
+      this.candy});
 }
 
 enum IceSize {

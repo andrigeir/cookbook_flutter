@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
 
+import 'package:provider/provider.dart';
+
 import '../items/toggle_button_item.dart';
+import '../../models/cart.dart';
+
+
+import '../items/toggle_button_item.dart';
+
 
 class MyToggleButton extends StatefulWidget {
   final bool horizontalScroll;
   final List<String> titles;
+  final int method;
 
   const MyToggleButton(
-      {Key key, @required this.horizontalScroll, @required this.titles})
+      {Key key,
+      @required this.horizontalScroll,
+      @required this.titles,
+      @required this.method})
+
       : super(key: key);
   @override
   _MyToggleButtonState createState() => _MyToggleButtonState();
@@ -26,6 +38,24 @@ class _MyToggleButtonState extends State<MyToggleButton> {
     _isSelected = List.generate(i, (_) => false);
     _color = List.generate(i, (_) => Colors.white.withOpacity(0.5));
   }
+
+
+  void _setSize(BuildContext context, String _title) {
+    Provider.of<CartItem>(context, listen: false).setSize(_title);
+  }
+
+  void _setType(BuildContext context, String _title) {
+    Provider.of<CartItem>(context, listen: false).setType(_title);
+  }
+
+  void _addCandy(BuildContext context, String _candy) {
+    Provider.of<CartItem>(context, listen: false).addCandy(_candy);
+  }
+
+  void _removeCandy(BuildContext context, String _candy) {
+    Provider.of<CartItem>(context, listen: false).removeCandy(_candy);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,18 +82,37 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                     isSelected: _isSelected,
                     onPressed: (int index) {
                       setState(() {
-                        _isSelected = List.generate(
-                          i,
-                          (_) => false,
-                        );
-                        _isSelected[index] = !_isSelected[index];
-                        _color = List.generate(
-                          i,
-                          (_) => Colors.white.withOpacity(0.5),
-                        );
-                        _color[index] = Theme.of(context).accentColor;
-                        // _setPrice(context, _title[index], []);
-                        // _setSize(context, index);
+                        if (widget.method != 3) {
+                          _isSelected = List.generate(
+                            i,
+                            (_) => false,
+                          );
+                          _isSelected[index] = !_isSelected[index];
+                          _color = List.generate(
+                            i,
+                            (_) => Colors.white.withOpacity(0.5),
+                          );
+                          _color[index] = Theme.of(context).accentColor;
+                        }
+
+                        if (widget.method == 1) {
+                          _setSize(context, widget.titles[index]);
+                        } else if (widget.method == 2) {
+                          _setType(context, widget.titles[index]);
+                        } else {
+                          if (_isSelected.where((item) => item == true).length <
+                                  4 &&
+                              !_isSelected[index]) {
+                            _isSelected[index] = true;
+                            _color[index] = Theme.of(context).accentColor;
+                            _addCandy(context, widget.titles[index]);
+                          } else {
+                            _isSelected[index] = false;
+                            _color[index] = Colors.white.withOpacity(0.5);
+                            _removeCandy(context, widget.titles[index]);
+                          }
+                        }
+
                       });
                     },
                     borderColor: Theme.of(context).primaryColor,

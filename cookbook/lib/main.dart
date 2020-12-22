@@ -1,5 +1,6 @@
 import 'package:cookbook/screens/auth_screen.dart';
 import 'package:cookbook/screens/cart_screen.dart';
+import 'package:cookbook/screens/confirm_order_screen.dart';
 import 'package:cookbook/screens/orders_screen.dart';
 import 'package:cookbook/screens/productDetailsScreen.dart';
 import 'package:cookbook/screens/user_profile_screen.dart';
@@ -66,6 +67,7 @@ class MyApp extends StatelessWidget {
             UserProfile.routeName: (context) => UserProfile(),
             OrderScreen.routeName: (context) => OrderScreen(),
             AuthScreen.routeName: (context) => AuthScreen(),
+            ConfirmOrderScreen.routeName: (context) => ConfirmOrderScreen(),
             DeliveryScreen.routeName: (context) => DeliveryScreen(),
             AllStoresScreen.routeName: (context) => AllStoresScreen(),
             DeliveryAdressScreen.routeName: (context) => DeliveryAdressScreen(),

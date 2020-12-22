@@ -25,15 +25,15 @@ class _MenuBarState extends State<MenuBar> {
       items: [
         BottomNavigationBarItem(
           icon: new Icon(Icons.shopping_cart),
-          title: new Text('My Cart'),
+          title: new Text('Karfan mín'),
         ),
         BottomNavigationBarItem(
           icon: new Icon(Icons.home),
-          title: new Text('Home'),
+          title: new Text('Heim'),
         ),
         BottomNavigationBarItem(
           icon: new Icon(Icons.person),
-          title: new Text('Profile'),
+          title: new Text('Mín Síða'),
         )
       ],
       onTap: (index) {
@@ -42,7 +42,6 @@ class _MenuBarState extends State<MenuBar> {
           Navigator.of(context).pushReplacementNamed(_pages[index]);
         });
       },
-
     );
   }
 }

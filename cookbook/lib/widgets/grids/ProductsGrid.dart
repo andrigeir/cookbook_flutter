@@ -18,8 +18,8 @@ class ProductGrid extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(8),
                     height: 150,
-                    width: 150,
-                    child: Image.asset('assets/Icecream_logo.png'),
+                    width: 200,
+                    child: Image.asset('assets/logo-white.png'),
                   ),
                 ),
               ],

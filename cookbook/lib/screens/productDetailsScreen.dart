@@ -74,7 +74,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
                     child: Text(
-                      'Please choose the size of your ice-cream',
+                      'Vinsamlegast veldu stærð',
                       style: Theme.of(context).textTheme.headline4,
                     ),
                   ),
@@ -88,7 +88,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
                     child: Text(
-                      'Please choose the base of your ice-cream',
+                      'Vinsamlegast veldu ís',
                       style: Theme.of(context).textTheme.headline4,
                     ),
                   ),
@@ -102,7 +102,7 @@ class ProductDetailsScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
                     child: Text(
-                      'Please choose your extras',
+                      'Hvaða nammi villtu?',
                       style: Theme.of(context).textTheme.headline4,
                     ),
                   ),
@@ -114,9 +114,9 @@ class ProductDetailsScreen extends StatelessWidget {
                     'Snickers',
                     'Oreo',
                     'M&M',
-                    'Caramel',
-                    'Milka',
-                    'Fruit'
+                    'Jarðaber',
+                    'Þristur',
+                    'Bláber'
                   ],
                   method: 3,
                 ),

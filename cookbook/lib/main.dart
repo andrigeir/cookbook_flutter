@@ -9,6 +9,9 @@ import 'package:provider/provider.dart';
 import 'screens/ProductOverviewScreen.dart';
 import 'screens/user_profile_screen.dart';
 import 'screens/auth_screen.dart';
+import 'screens/delivery_adress_screen.dart';
+import 'screens/all_stores_screen.dart';
+import 'screens/delivery_screen.dart';
 import 'models/cart.dart';
 import 'models/orders.dart';
 import 'models/auth.dart';
@@ -54,7 +57,7 @@ class MyApp extends StatelessWidget {
                   color: Color(0xFFd52b1e)),
             ),
           ),
-          home: auth.isAuth ? ProductOverviewScreen() : AuthScreen(),
+          home: auth.isAuth ? DeliveryScreen() : AuthScreen(),
           routes: {
             ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
             CartScreen.routeName: (context) => CartScreen(),
@@ -63,6 +66,9 @@ class MyApp extends StatelessWidget {
             UserProfile.routeName: (context) => UserProfile(),
             OrderScreen.routeName: (context) => OrderScreen(),
             AuthScreen.routeName: (context) => AuthScreen(),
+            DeliveryScreen.routeName: (context) => DeliveryScreen(),
+            AllStoresScreen.routeName: (context) => AllStoresScreen(),
+            DeliveryAdressScreen.routeName: (context) => DeliveryAdressScreen(),
           },
         ),
       ),

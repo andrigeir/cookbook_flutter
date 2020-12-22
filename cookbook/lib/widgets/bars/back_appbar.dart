@@ -27,7 +27,7 @@ class BackAppBar extends StatelessWidget {
                     flex: 8,
                     child: Center(
                       child: Text(text,
-                          style: Theme.of(context).textTheme.headline2),
+                          style: Theme.of(context).textTheme.headline4),
                     ),
                   ),
                   Spacer(

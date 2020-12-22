@@ -52,7 +52,8 @@ class Orders with ChangeNotifier {
                   'price': cp.price,
                   'candy': cp.candy
                 })
-            .toList(),
+            .toList()
+            .reversed,
       }),
     );
 

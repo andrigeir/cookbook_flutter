@@ -1,3 +1,4 @@
+import 'package:cookbook/widgets/bars/menubar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../widgets/bars/topbar.dart';
@@ -31,7 +32,7 @@ class _OrderScreenState extends State<OrderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final orders = Provider.of<Orders>(context).orders;
+    final orders = Provider.of<Orders>(context).orders.reversed.toList();
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: TopBar(),
@@ -42,15 +43,33 @@ class _OrderScreenState extends State<OrderScreen> {
                 child: CircularProgressIndicator(),
               )
             : ListView.builder(
-                shrinkWrap: true,
+                shrinkWrap: false,
                 itemCount: orders.length,
                 itemBuilder: (
                   BuildContext context,
                   i,
-                ) =>
-                    OrderListItem(orders[i]),
+                ) {
+                  if (i == 0) {
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(40.0),
+                          child: Center(
+                            child: Text(
+                              "Þínar Pantanir",
+                              style: Theme.of(context).textTheme.headline4,
+                            ),
+                          ),
+                        ),
+                        OrderListItem(orders[i])
+                      ],
+                    );
+                  }
+                  return OrderListItem(orders[i]);
+                },
               ),
       ),
+      bottomNavigationBar: MenuBar(),
     );
   }
 }

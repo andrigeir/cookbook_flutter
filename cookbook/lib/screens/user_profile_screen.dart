@@ -14,21 +14,17 @@ class UserProfile extends StatelessWidget {
     return Scaffold(
       appBar: TopBar(),
       body: Container(
+          padding: EdgeInsets.all(10),
           color: Theme.of(context).primaryColor,
           child: Column(
             children: [
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 15, bottom: 25),
-                    height: 150.0,
-                    width: MediaQuery.of(context).size.width,
-                    child: new Image.asset(
-                      'assets/logo-white.png',
-                      height: 60.0,
-                    ),
-                  ),
-                ],
+              Center(
+                child: Container(
+                  margin: EdgeInsets.all(8),
+                  height: 150,
+                  width: 200,
+                  child: Image.asset('assets/logo-white.png'),
+                ),
               ),
               UserProfileButton(
                 text: 'Stillingar',

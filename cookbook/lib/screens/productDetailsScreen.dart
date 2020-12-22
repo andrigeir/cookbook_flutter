@@ -25,7 +25,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 AppBar(
                   title: Text(
                     loadedProduct.title,
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.caption,
                   ),
                   centerTitle: true,
                   elevation: 0,

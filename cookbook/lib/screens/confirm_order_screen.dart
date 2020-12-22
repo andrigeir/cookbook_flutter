@@ -20,7 +20,7 @@ class ConfirmOrderScreen extends StatelessWidget {
             AppBar(
               title: Text(
                 'Staðfesta pöntun',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.caption,
               ),
               centerTitle: true,
               elevation: 0,

@@ -3,7 +3,7 @@ import 'package:cookbook/screens/auth_screen.dart';
 import '../widgets/bars/topbar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/bars/menubar.dart';
-
+import '../screens/delivery_screen.dart';
 import '../widgets/items/user_profile_button.dart';
 import '../screens/orders_screen.dart';
 
@@ -56,7 +56,7 @@ class UserProfile extends StatelessWidget {
               ),
               UserProfileButton(
                 text: 'FAQ',
-                routeName: '',
+                routeName: DeliveryScreen.routeName,
                 icon: Icons.question_answer,
                 logoutMethod: false,
               ),

@@ -1,3 +1,6 @@
+import 'package:cookbook/models/delivery.dart';
+import 'package:provider/provider.dart';
+
 import '../widgets/bars/topbar.dart';
 import 'package:flutter/material.dart';
 import '../screens/all_stores_screen.dart';
@@ -6,6 +9,7 @@ import '../widgets/items/user_profile_button.dart';
 
 class DeliveryScreen extends StatelessWidget {
   static const routeName = '/delivery';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +34,13 @@ class DeliveryScreen extends StatelessWidget {
                       text: 'Sækja',
                       routeName: AllStoresScreen.routeName,
                       icon: Icons.shopping_bag,
-                      logoutMethod: false,
+                      method: 'delivery',
                     ),
                     UserProfileButton(
                       text: 'Heimsending',
                       routeName: DeliveryAdressScreen.routeName,
                       icon: Icons.delivery_dining,
-                      logoutMethod: false,
+                      method: null,
                     ),
                   ],
                 ),

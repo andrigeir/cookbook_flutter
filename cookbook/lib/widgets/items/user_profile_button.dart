@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../models/auth.dart';
+import '../../models/delivery.dart';
 
 class UserProfileButton extends StatelessWidget {
   const UserProfileButton(
@@ -8,13 +9,13 @@ class UserProfileButton extends StatelessWidget {
       @required this.routeName,
       @required this.text,
       @required this.icon,
-      @required this.logoutMethod})
+      @required this.method})
       : super(key: key);
 
   final String routeName;
   final String text;
   final IconData icon;
-  final bool logoutMethod;
+  final String method;
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +54,16 @@ class UserProfileButton extends StatelessWidget {
           ),
         ),
         onTap: () {
-          if (logoutMethod) {
+          if (method == 'logout') {
             Provider.of<Auth>(context, listen: false).logout();
             Navigator.of(context).pushNamedAndRemoveUntil(
                 routeName, (Route<dynamic> route) => false);
-          } else {
-            Navigator.of(context).pushNamed(routeName);
+          } else if (method == 'delivery') {
+            Provider.of<DeliveryItem>(context, listen: false).setDelivery(text);
+          } else if (method == 'store') {
+            Provider.of<DeliveryItem>(context, listen: false).setAdress(text);
           }
+          Navigator.of(context).pushNamed(routeName);
         });
   }
 }

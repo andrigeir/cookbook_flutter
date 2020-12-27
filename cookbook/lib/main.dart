@@ -1,3 +1,5 @@
+import 'package:cookbook/models/delivery.dart';
+
 import './screens/auth_screen.dart';
 import './screens/cart_screen.dart';
 import './screens/confirm_order_screen.dart';
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(value: CartItem()),
         ChangeNotifierProvider.value(value: Cart()),
+        ChangeNotifierProvider.value(value: DeliveryItem()),
         ChangeNotifierProxyProvider<Auth, Orders>(
           create: null,
           update: (context, auth, previousOrders) => Orders(auth.token,

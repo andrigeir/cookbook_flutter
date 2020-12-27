@@ -23,7 +23,7 @@ class AllStoresScreen extends StatelessWidget {
                   height: 150.0,
                   width: MediaQuery.of(context).size.width,
                   child: new Image.asset(
-                    'assets/Icecream_logo.png',
+                    'assets/logo-white.png',
                     height: 60.0,
                   ),
                 ),

@@ -17,8 +17,8 @@ class DeliveryScreen extends StatelessWidget {
             Expanded(
               child: Center(
                 child: new Image.asset(
-                  'assets/Icecream_logo.png',
-                  height: 160.0,
+                  'assets/logo-white.png',
+                  height: 130.0,
                 ),
               ),
             ),
@@ -27,13 +27,13 @@ class DeliveryScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     UserProfileButton(
-                      text: 'Eg vil sækja',
+                      text: 'Sækja',
                       routeName: AllStoresScreen.routeName,
                       icon: Icons.shopping_bag,
                       logoutMethod: false,
                     ),
                     UserProfileButton(
-                      text: 'Eg vil fa send heim',
+                      text: 'Heimsending',
                       routeName: DeliveryAdressScreen.routeName,
                       icon: Icons.delivery_dining,
                       logoutMethod: false,

@@ -9,12 +9,18 @@ class OrderItem {
   final int amount;
   final List<CartItem> products;
   final DateTime dateTime;
+  final String delivery;
+  final String adress;
+  final String payment;
 
   OrderItem({
     @required this.orderId,
     @required this.amount,
     @required this.products,
     @required this.dateTime,
+    @required this.delivery,
+    @required this.adress,
+    @required this.payment,
   });
 }
 
@@ -29,7 +35,8 @@ class Orders with ChangeNotifier {
     return [..._orders];
   }
 
-  Future<void> addOrder(List<CartItem> cartProducts, int totalAmount) async {
+  Future<void> addOrder(List<CartItem> cartProducts, int totalAmount,
+      String delivery, String adress, String payment) async {
     final url =
         "https://cookbook-firebase-with-flutter.firebaseio.com/orders/$userId.json?auth=$authToken";
     final timestamp = DateTime.now();
@@ -38,6 +45,9 @@ class Orders with ChangeNotifier {
       body: json.encode({
         'amount': totalAmount,
         'dateTime': timestamp.toIso8601String(),
+        'delivery': delivery,
+        'adress': adress,
+        'payment': payment,
         'products': cartProducts
             .map((cp) => {
                   'id': cp.id,
@@ -52,19 +62,20 @@ class Orders with ChangeNotifier {
                   'price': cp.price,
                   'candy': cp.candy
                 })
-            .toList()
-            .reversed,
+            .toList(),
       }),
     );
 
     _orders.insert(
       0,
       OrderItem(
-        orderId: json.decode(response.body)['name'],
-        amount: totalAmount,
-        products: cartProducts,
-        dateTime: DateTime.now(),
-      ),
+          orderId: json.decode(response.body)['name'],
+          amount: totalAmount,
+          products: cartProducts,
+          dateTime: DateTime.now(),
+          delivery: delivery,
+          adress: adress,
+          payment: payment),
     );
     notifyListeners();
   }
@@ -85,6 +96,9 @@ class Orders with ChangeNotifier {
           orderId: id,
           amount: orderData["amount"],
           dateTime: DateTime.parse(orderData["dateTime"]),
+          delivery: orderData["delivery"],
+          adress: orderData["adress"],
+          payment: orderData["payment"],
           products: (orderData['products'] as List<dynamic>)
               .map(
                 (item) => CartItem(

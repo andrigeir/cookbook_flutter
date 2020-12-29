@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../models/cart.dart';
 import '../../models/orders.dart';
+import '../../models/delivery.dart';
 
 class PaymentButton extends StatelessWidget {
   const PaymentButton({
@@ -19,6 +20,7 @@ class PaymentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
+    final delivery = Provider.of<DeliveryItem>(context);
     return InkWell(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -57,10 +59,8 @@ class PaymentButton extends StatelessWidget {
           Provider.of<Orders>(
             context,
             listen: false,
-          ).addOrder(
-            cart.items.values.toList(),
-            cart.totalAmount,
-          );
+          ).addOrder(cart.items.values.toList(), cart.totalAmount,
+              delivery.getDelivery, delivery.getAdress, 'Greitt');
           // setState(() {
           //   _isloading = false;
           // });

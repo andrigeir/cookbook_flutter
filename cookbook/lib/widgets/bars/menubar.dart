@@ -17,7 +17,7 @@ class _MenuBarState extends State<MenuBar> {
     UserProfile.routeName,
   ];
 
-  static int _currentIndex;
+  static int _currentIndex = 1;
 
   void _changeTab(int index) {
     setState(() {

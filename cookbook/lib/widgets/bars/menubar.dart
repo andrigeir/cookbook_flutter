@@ -29,23 +29,23 @@ class _MenuBarState extends State<MenuBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_cart_outlined),
-          label: 'Karfan mín',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_outlined),
-          label: 'Heim',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline_outlined),
-          label: 'Mín Síða',
-        )
-      ],
-      currentIndex: _currentIndex,
-      onTap: _changeTab,
-      unselectedItemColor: Colors.black,
-    );
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Karfan mín',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Heim',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline_outlined),
+            label: 'Mín Síða',
+          )
+        ],
+        currentIndex: _currentIndex,
+        onTap: _changeTab,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Theme.of(context).primaryColor);
   }
 }

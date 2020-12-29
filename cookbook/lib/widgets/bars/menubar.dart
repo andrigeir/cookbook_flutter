@@ -11,37 +11,41 @@ class MenuBar extends StatefulWidget {
 }
 
 class _MenuBarState extends State<MenuBar> {
-  List<String> _pages = <String>[
+  static const List<String> _pages = <String>[
     CartScreen.routeName,
     ProductOverviewScreen.routeName,
     UserProfile.routeName,
   ];
 
-  int _currentIndex = 1;
+  static int _currentIndex;
+
+  void _changeTab(int index) {
+    setState(() {
+      _currentIndex = index;
+      Navigator.of(context).pushReplacementNamed(_pages[index]);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: _currentIndex,
       items: [
         BottomNavigationBarItem(
-          icon: new Icon(Icons.shopping_cart),
-          title: new Text('Karfan mín'),
+          icon: Icon(Icons.shopping_cart_outlined),
+          label: 'Karfan mín',
         ),
         BottomNavigationBarItem(
-          icon: new Icon(Icons.home),
-          title: new Text('Heim'),
+          icon: Icon(Icons.home_outlined),
+          label: 'Heim',
         ),
         BottomNavigationBarItem(
-          icon: new Icon(Icons.person),
-          title: new Text('Mín Síða'),
+          icon: Icon(Icons.person_outline_outlined),
+          label: 'Mín Síða',
         )
       ],
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-          Navigator.of(context).pushReplacementNamed(_pages[index]);
-        });
-      },
+      currentIndex: _currentIndex,
+      onTap: _changeTab,
+      unselectedItemColor: Colors.black,
     );
   }
 }

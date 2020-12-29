@@ -1,3 +1,4 @@
+import 'package:cookbook/models/delivery.dart';
 import 'package:cookbook/screens/orders_screen.dart';
 import 'package:cookbook/widgets/bars/topbar.dart';
 import 'package:cookbook/widgets/items/payment_button.dart';
@@ -12,6 +13,7 @@ class ConfirmOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
+    final deliveryItem = Provider.of<DeliveryItem>(context);
     return Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         appBar: TopBar(),
@@ -20,7 +22,7 @@ class ConfirmOrderScreen extends StatelessWidget {
             AppBar(
               title: Text(
                 'Staðfesta pöntun',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.caption,
               ),
               centerTitle: true,
               elevation: 0,
@@ -56,12 +58,37 @@ class ConfirmOrderScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Afhendingarstaður: ',
+                    'Afhendingarmáti: ',
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   Text(
-                    'Skipholt',
+                    deliveryItem.getDeliveryItem.delivery,
                     style: Theme.of(context).textTheme.headline4,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Afhendingarstaður: ',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Container(
+                    alignment: Alignment.centerRight,
+                    height: 100,
+                    width: 130,
+                    child: Center(
+                      child: Text(
+                        deliveryItem.getDeliveryItem.adress,
+                        style: Theme.of(context).textTheme.headline4,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -83,7 +110,7 @@ class ConfirmOrderScreen extends StatelessWidget {
                         routeName: null,
                         text: 'Greiða með Korti',
                         icon: Icons.credit_card_outlined,
-                        logoutMethod: null),
+                        method: null),
                     PaymentButton(
                       routeName: OrderScreen.routeName,
                       text: 'Greiða í verslun',

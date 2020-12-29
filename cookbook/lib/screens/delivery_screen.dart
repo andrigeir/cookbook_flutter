@@ -1,3 +1,6 @@
+import 'package:cookbook/models/delivery.dart';
+import 'package:provider/provider.dart';
+
 import '../widgets/bars/topbar.dart';
 import 'package:flutter/material.dart';
 import '../screens/all_stores_screen.dart';
@@ -6,6 +9,7 @@ import '../widgets/items/user_profile_button.dart';
 
 class DeliveryScreen extends StatelessWidget {
   static const routeName = '/delivery';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +21,8 @@ class DeliveryScreen extends StatelessWidget {
             Expanded(
               child: Center(
                 child: new Image.asset(
-                  'assets/Icecream_logo.png',
-                  height: 160.0,
+                  'assets/logo-white.png',
+                  height: 130.0,
                 ),
               ),
             ),
@@ -27,16 +31,16 @@ class DeliveryScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     UserProfileButton(
-                      text: 'Eg vil sækja',
+                      text: 'Sækja',
                       routeName: AllStoresScreen.routeName,
                       icon: Icons.shopping_bag,
-                      logoutMethod: false,
+                      method: 'delivery',
                     ),
                     UserProfileButton(
-                      text: 'Eg vil fa send heim',
+                      text: 'Heimsending',
                       routeName: DeliveryAdressScreen.routeName,
                       icon: Icons.delivery_dining,
-                      logoutMethod: false,
+                      method: null,
                     ),
                   ],
                 ),

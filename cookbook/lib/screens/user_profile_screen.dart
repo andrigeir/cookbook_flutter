@@ -1,5 +1,3 @@
-import 'package:cookbook/screens/auth_screen.dart';
-
 import '../widgets/bars/topbar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/bars/menubar.dart';

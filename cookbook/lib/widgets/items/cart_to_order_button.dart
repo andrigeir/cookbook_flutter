@@ -1,10 +1,9 @@
 import 'package:cookbook/screens/confirm_order_screen.dart';
-import 'package:cookbook/screens/orders_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/cart.dart';
-import '../../models/orders.dart';
 
 class CartToOrderButton extends StatefulWidget {
   @override
@@ -12,7 +11,7 @@ class CartToOrderButton extends StatefulWidget {
 }
 
 class _CartToOrderBottonState extends State<CartToOrderButton> {
-  var _isloading = false;
+  // var _isloading = false;
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);

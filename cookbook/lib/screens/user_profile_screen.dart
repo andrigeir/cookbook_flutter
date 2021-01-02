@@ -1,16 +1,18 @@
-import 'package:cookbook/screens/auth_screen.dart';
-
 import '../widgets/bars/topbar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/bars/menubar.dart';
 import '../screens/delivery_screen.dart';
 import '../widgets/items/user_profile_button.dart';
 import '../screens/orders_screen.dart';
+import '../models/auth.dart';
+import 'package:provider/provider.dart';
 
 class UserProfile extends StatelessWidget {
   static const routeName = '/user-profile';
+
   @override
   Widget build(BuildContext context) {
+    final String _userEmail = Provider.of<Auth>(context).userEmail;
     return Scaffold(
       appBar: TopBar(),
       body: Container(
@@ -25,6 +27,11 @@ class UserProfile extends StatelessWidget {
                   width: 200,
                   child: Image.asset('assets/logo-white.png'),
                 ),
+              ),
+              Row(
+                children: [
+                  Expanded(child: Center(child: Text('Welcome $_userEmail !')))
+                ],
               ),
               UserProfileButton(
                 text: 'Stillingar',

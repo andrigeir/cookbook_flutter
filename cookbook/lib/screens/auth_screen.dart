@@ -1,3 +1,4 @@
+import 'package:cookbook/widgets/bars/topbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/auth.dart';
@@ -12,6 +13,7 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: TopBar(),
       body: Container(
         color: Theme.of(context).primaryColor,
         height: deviceSize.height,

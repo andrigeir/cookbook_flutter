@@ -8,6 +8,7 @@ class Auth with ChangeNotifier {
   String _token;
   DateTime _expiryDate;
   String _userId;
+  String _userEmail;
 
   bool get isAuth {
     return token != null;
@@ -15,6 +16,10 @@ class Auth with ChangeNotifier {
 
   String get userId {
     return _userId;
+  }
+
+  String get userEmail {
+    return _userEmail;
   }
 
   String get token {
@@ -47,6 +52,7 @@ class Auth with ChangeNotifier {
       }
       _token = responseData['idToken'];
       _userId = responseData['localId'];
+      _userEmail = email;
       _expiryDate = DateTime.now().add(
         Duration(
           seconds: int.parse(
@@ -72,7 +78,6 @@ class Auth with ChangeNotifier {
     _token = null;
     _userId = null;
     _expiryDate = null;
-
     notifyListeners();
   }
 }
